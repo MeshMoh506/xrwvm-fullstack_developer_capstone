@@ -1,0 +1,129 @@
+<html>
+<head>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/bootstrap.min.css">
+
+  <style>
+    body {
+      background-color: #f5f7fa;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .navbar {
+      background-color: #009fbd !important;
+      height: 1in;
+    }
+
+    .navbar h2 {
+      color: white;
+      font-weight: 600;
+    }
+
+    .nav-link {
+      color: white !important;
+      font-size: 1.1rem;
+      margin-right: 10px;
+    }
+
+    .nav-link.active {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    .contact-card {
+      width: 70%;
+      margin: 50px auto;
+      padding: 30px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .contact-card h3 {
+      color: #009fbd;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .contact-item {
+      margin-bottom: 20px;
+    }
+
+    .contact-item h5 {
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    .contact-item p {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .contact-icon {
+      font-size: 2rem;
+      color: #009fbd;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <h2 style="padding-right: 5%;">Dealerships</h2>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/contact">Contact Us</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="contact-card">
+  <h3>Contact Us</h3>
+
+  <div class="contact-item">
+    <h5>📧 Customer Support</h5>
+    <p>Email: support@bestcars.com</p>
+    <p>Phone: +1 (800) 555‑0199</p>
+  </div>
+
+  <div class="contact-item">
+    <h5>📢 Advertising Team</h5>
+    <p>Email: ads@bestcars.com</p>
+    <p>Phone: +1 (800) 555‑0200</p>
+  </div>
+
+  <div class="contact-item">
+    <h5>📰 Public Relations</h5>
+    <p>Email: pr@bestcars.com</p>
+    <p>Phone: +1 (800) 555‑0300</p>
+  </div>
+
+  <div class="contact-item">
+    <h5>🏢 Corporate Office</h5>
+    <p>Address: 123 Auto Lane, Detroit, MI 48201</p>
+    <p>Phone: +1 (800) 555‑0400</p>
+  </div>
+
+  <div class="contact-item">
+    <h5>🚗 Become a Dealer</h5>
+    <p>Visit: <a href="https://growwithbestcars.com" target="_blank">growwithbestcars.com</a></p>
+  </div>
+</div>
+
+</body>
+</html>

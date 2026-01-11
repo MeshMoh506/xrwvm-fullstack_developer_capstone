@@ -1,12 +1,13 @@
 <html>
 <head>
-  <link rel="stylesheet" href="/static/bootstrap.min.css">
-  <style>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+    <style>
     body {
       background-color: #f5f7fa;
       font-family: 'Segoe UI', sans-serif;
     }
-
+  
     .navbar {
       background-color: #009fbd !important;
       height: 1in;
@@ -23,6 +24,11 @@
       margin-right: 10px;
     }
 
+    .nav-link.active {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  
     .banner {
       background: linear-gradient(to right, #009fbd, #00c6d7);
       color: white;
@@ -30,7 +36,7 @@
       border-radius: 10px 10px 0 0;
       text-align: center;
     }
-
+  
     .team-section {
       display: flex;
       flex-direction: row;
@@ -39,18 +45,18 @@
       gap: 20px;
       flex-wrap: wrap;
     }
-
+  
     .card {
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       overflow: hidden;
     }
-
+  
     .card img {
       height: 260px;
       object-fit: cover;
     }
-
+  
     .title {
       font-size: 1.3rem;
       font-weight: 600;
