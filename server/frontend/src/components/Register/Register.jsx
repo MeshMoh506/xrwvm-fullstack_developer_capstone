@@ -18,8 +18,8 @@ const Register = () => {
   const register = async (e) => {
     e.preventDefault();
 
-    const register_url = window.location.origin + "/djangoapp/register";
-
+    const register_url = window.location.origin + "/djangoapp/registration";
+    
     const res = await fetch(register_url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
