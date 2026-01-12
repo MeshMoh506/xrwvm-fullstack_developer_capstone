@@ -9,7 +9,7 @@ function App() {
       <Route path="/login" element={<LoginPanel />} />
 
       {/* Registration page */}
-      <Route path="/register" element={<Register />} />
+      <Route path="/registration" element={<Register />} />
     </Routes>
   );
 }
