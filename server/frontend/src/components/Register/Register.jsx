@@ -17,9 +17,9 @@ const Register = () => {
 
   const register = async (e) => {
     e.preventDefault();
-
-    const register_url = window.location.origin + "/djangoapp/registration";
-    
+  
+    const register_url = window.location.origin + "/djangoapp/register";
+  
     const res = await fetch(register_url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -31,9 +31,9 @@ const Register = () => {
         email,
       }),
     });
-
+  
     const json = await res.json();
-
+  
     if (json.status) {
       sessionStorage.setItem("username", json.userName);
       window.location.href = window.location.origin;
