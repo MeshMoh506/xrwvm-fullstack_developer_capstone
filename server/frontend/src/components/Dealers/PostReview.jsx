@@ -32,8 +32,9 @@ const PostReview = () => {
       return;
     }
 
-const [make_chosen, ...rest] = model.split(" ");
-const model_chosen = rest.join(" ");
+    let model_split = model.split(" ");
+    let make_chosen = model_split[0];
+    let model_chosen = model_split[1];
 
     let jsoninput = JSON.stringify({
       "name": name,
@@ -109,13 +110,11 @@ const model_chosen = rest.join(" ");
       </div >
 
       <div className='input_field'>
-      Car Year <input type="number" onChange={(e) => setYear(e.target.value)} max={2023} min={2015}/>
+      Car Year <input type="int" onChange={(e) => setYear(e.target.value)} max={2023} min={2015}/>
       </div>
 
       <div>
-<button type="button" className='postreview' onClick={postreview}>
-  Post Review
-</button>
+      <button className='postreview' onClick={postreview}>Post Review</button>
       </div>
     </div>
     </div>
