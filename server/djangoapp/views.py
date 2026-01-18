@@ -15,8 +15,10 @@ logger = logging.getLogger(__name__)
 @csrf_exempt
 def login_user(request):
     if request.method != "POST":
-        return JsonResponse({"error": "Only POST requests allowed"}, 
-        status=405)
+        return JsonResponse(
+            {"error": "Only POST requests allowed"},
+            status=405
+        )
 
     try:
         data = json.loads(request.body)
@@ -29,11 +31,14 @@ def login_user(request):
     user = authenticate(username=username, password=password)
     if user is not None:
         login(request, user)
-        return JsonResponse({"userName": username, 
-        "status": "Authenticated"})
+        return JsonResponse(
+            {"userName": username, "status": "Authenticated"}
+        )
     else:
-        return JsonResponse({"userName": username, 
-        "status": "Unauthorized"}, status=401)
+        return JsonResponse(
+            {"userName": username, "status": "Unauthorized"},
+            status=401
+        )
 
 
 def logout_request(request):
@@ -45,14 +50,14 @@ def logout_request(request):
 def registration(request):
     if request.method != "POST":
         return JsonResponse(
-            {"error": "Only POST requests allowed"}, 
-        status=405)
+            {"error": "Only POST requests allowed"},
+            status=405
+        )
 
     try:
         data = json.loads(request.body)
     except json.JSONDecodeError:
-        return JsonResponse({"error": "Invalid JSON"}, 
-        status=400)
+        return JsonResponse({"error": "Invalid JSON"}, status=400)
 
     username = data.get('userName')
     password = data.get('password')
@@ -76,11 +81,13 @@ def registration(request):
             email=email
         )
         login(request, user)
-        return JsonResponse({"userName": username, 
-        "status": "Authenticated"})
+        return JsonResponse(
+            {"userName": username, "status": "Authenticated"}
+        )
     else:
-        return JsonResponse({"userName": username, 
-        "error": "Already Registered"})
+        return JsonResponse(
+            {"userName": username, "error": "Already Registered"}
+        )
 
 
 def get_cars(request):
@@ -112,48 +119,56 @@ def get_dealer_reviews(request, dealer_id):
         reviews = get_request(endpoint)
 
         for review_detail in reviews:
-            response = 
-            analyze_review_sentiments(review_detail.get('review', ''))
+            response = analyze_review_sentiments(
+                review_detail.get('review', '')
+            )
 
             if response and 'sentiment' in response:
-                review_detail['sentiment'] = 
-                response['sentiment']
+                review_detail['sentiment'] = response['sentiment']
             else:
                 review_detail['sentiment'] = "unknown"
 
-        return JsonResponse({"status": 200,
-         "reviews": reviews})
+        return JsonResponse(
+            {"status": 200, "reviews": reviews}
+        )
 
-    else:
-        return JsonResponse({"status": 400, 
-        "message": "Bad Request"})
+    return JsonResponse(
+        {"status": 400, "message": "Bad Request"}
+    )
+
 
 def get_dealer_details(request, dealer_id):
     if dealer_id:
         endpoint = "/fetchDealer/" + str(dealer_id)
         dealership = get_request(endpoint)
-        return JsonResponse({"status": 200,
-         "dealer": dealership})
-    else:
-        return JsonResponse({"status": 400, 
-        "message": "Bad Request"})
+        return JsonResponse(
+            {"status": 200, "dealer": dealership}
+        )
+
+    return JsonResponse(
+        {"status": 400, "message": "Bad Request"}
+    )
 
 
 def add_review(request):
-    if request.user.is_anonymous is False:
+    if not request.user.is_anonymous:
         try:
             data = json.loads(request.body)
         except json.JSONDecodeError:
-            return JsonResponse({"status": 400, 
-            "message": "Invalid JSON"})
+            return JsonResponse(
+                {"status": 400, "message": "Invalid JSON"}
+            )
 
         try:
             response = post_review(data)
-            return JsonResponse({"status": 200, 
-            "response": response})
+            return JsonResponse(
+                {"status": 200, "response": response}
+            )
         except Exception as err:
-            return JsonResponse({"status": 401, 
-            "message": str(err)})
-    else:
-        return JsonResponse({"status": 403,
-         "message": "Unauthorized"})
+            return JsonResponse(
+                {"status": 401, "message": str(err)}
+            )
+
+    return JsonResponse(
+        {"status": 403, "message": "Unauthorized"}
+    )
